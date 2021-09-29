@@ -1,0 +1,92 @@
+---
+title: "Reporte"
+author: "Hugo Andres"
+date: "8/3/2021"
+output: html_document
+---
+
+<!-- Comentar control + shift + c -->
+
+<!-- Ingresas un chunk Control + alt +i -->
+
+<!-- https://r4ds.had.co.nz/r-markdown.html -->
+
+# Cargar Librerías
+
+Utilizamos en nuestro proceso las librerias
+
+```{r pakages, include=TRUE,warning=FALSE,message=FALSE}
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+```
+
+
+
+
+# Lectura de datos
+
+```{r lectura, include = T}
+
+datos <- read.csv("Datos/eventos_de_platano.csv")
+
+head(datos)
+
+```
+
+```{r summary, include = F}
+
+summary(datos)
+
+```
+
+Hemos utilizado la version de **R-4.05**, y la función `summary` ha sido utilizada dentro del código oculto, a continuación utilizaremos varias opciones de los paquetes contenidos en <https://www.tidyverse.org/>. 
+
+A continuación nombramos los paquetes que hemos utilizado en nuestro análisis de datos
+
+* ggplot2
+* dplyr
+* tidyverse
+
+
+
+```{r, echo=FALSE,fig.cap= "boxplot"}
+
+datos %>% ggplot(aes(x="Elevation",y=ALT_LOTE))+geom_boxplot()
+
+```
+
+*italic*
+
+# Titulo grande
+## Subtitulo
+### Pequeño subtitulo
+#### Diminuto subtitulo
+
+superscript^2^ and subscript~2~
+
+*   Item 2
+
+    * Item 2a
+
+    * Item 2b
+
+
+1.  Numbered list item 1
+
+1.  Item 2. The numbers are incremented automatically in the output.
+
+[linked phrase](http://example.com)
+
+
+
+```{r}
+knitr::kable(
+  mtcars[1:5, ], 
+  caption = ""
+)
+```
+
+

@@ -1,0 +1,105 @@
+---
+title: "Analisis Exploratorio"
+author: "Hugo Andres"
+date: "8/5/2021"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+<!-- Comentario ctrl + shift + c -->
+
+# Cargar librerias
+
+Utilizamos las siguientes librerias:
+
+ * ggplot2
+ * dplyr
+ * tidyr
+
+```{r libreria,message=FALSE,include=T,warning=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+
+## Media mediana y desviación estandar
+
+Se realiza una prueba con las funciones básicas de R, para análisis exploratorio
+
+<!-- Control + alt + i, tableros de codigo -->
+
+
+
+```{r descriptivos, include=T}
+
+m1 <- c(21,30,29,30,27,29)
+m2 <- c(21,30,29,30,27,70)
+
+mean(m1);mean(m2)
+median(m1);median(m2)
+
+sd(m1);sd(m2)
+
+range(m1)
+
+
+```
+
+### Coeficiente de varación
+
+El cofieciente de varicion es la desviación estandar `sd` dividido la media `mean`
+
+```{r coefvar}
+
+edad <- c(21,34,10,15,37)
+estatura <- c(1.8,1.7,1.5,1.4,1.7)
+
+sd(edad)/mean(edad)
+sd(estatura)/mean(estatura)
+
+```
+
+## Prática de gráficos en R
+
+Utilizamos las funciones de base de R y algunas bases de datos como **airquality**, realizamos *histogramas* y 
+*diagramas de dispersión*, tambien utilizamos el poderoso paquete ggplot2 <https://ggplot2.tidyverse.org/>
+
+
+El siguiete es un grafico en `ggplot2`
+
+```{r grafgg, fig.cap="Histograma de ozono", message=F,warning=FALSE,echo=FALSE}
+
+airquality %>% ggplot(aes(x=Ozone)) + geom_histogram(fill = "white",color ="black")+theme_bw()
+
+```
+
+elevar^2^, minimizar~2~
+
+ * Item 2
+    * Item 2a
+    * Item 2b
+    
+1. Num list item 1
+1. Item 2. 
+1. Item 3.
+
+## Visualizar tablas
+
+```{r tabla}
+knitr::kable(
+  head(airquality),
+  caption = "Calidad de aire"
+)
+
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
